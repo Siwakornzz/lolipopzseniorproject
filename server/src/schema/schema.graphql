@@ -1,0 +1,166 @@
+scalar Date
+
+type Query {
+  user: User
+  users: [User]!
+  subcontract(id: ID!): Subcontract
+  subcontracts: [Subcontract]!
+  subcontractswaiting: [Subcontract]
+  subcontractsapprove: [Subcontract]
+  subcontractsdenied: [Subcontract]
+  subcontractspendingcancel: [Subcontract]
+  adminapprovesubcontractspendingcancel: [Subcontract]
+  adminapprovesubcontractscancel: [Subcontract]
+  hirecontract(id: ID!): Hirecontract
+  hirecontracts: [Hirecontract]
+  hirecontractswaiting: [Hirecontract]
+  hirecontractsapprove: [Hirecontract]
+  hirecontractsdenied: [Hirecontract]
+  hirecontractspendingcancel: [Hirecontract]
+  hirecontractssubcontractpendingcancel: [Hirecontract]
+  adminapprovehirecontractscancel: [Hirecontract]
+}
+
+type Mutation {
+  signin(email: String!, password: String!): AuthData
+  signup(
+    firstname: String!
+    lastname: String!
+    username: String!
+    email: String!
+    password: String!
+  ): User
+  requestresetpassword(email: String!): Message!
+  resetpassword(password: String!, token: String!): Message!
+
+  createsubcontract(
+    accountnumber: String!
+    budget: Int!
+    district: String!
+    email: String!
+    idcard: String!
+    lineid: String!
+    member: Int!
+    nameofaccount: String!
+    nameofbank: String!
+    name: String!
+    natureofwork: String!
+    promptpay: String!
+    province: String!
+    skill: String!
+    subdistrict: String!
+    tel: String!
+    username: String!
+    yearskill: Int!
+    zip: String!
+  ): Subcontract!
+
+  updatesubcontract(
+    id: ID!
+    accountnumber: String
+    budget: Int
+    district: String
+    email: String
+    idcard: String
+    lineid: String
+    member: Int
+    nameofaccount: String
+    nameofbank: String
+    name: String
+    natureofwork: String
+    promptpay: String
+    province: String
+    skill: String
+    subdistrict: String
+    tel: String
+    username: String
+    yearskill: Int
+    zip: String
+  ): Subcontract!
+
+  deletesubcontract(id: ID!): Subcontract!
+
+  createhirecontract(
+    condition: String!
+    detail: String!
+    typeofwork: String!
+    budget: Float!
+    zone: String!
+    duration: Float!
+  ): Hirecontract!
+
+  updatehirecontract(
+    id: ID!
+    condition: String
+    detail: String
+    typeofwork: String
+    budget: Float
+    zone: String
+    duration: Float
+  ): Hirecontract!
+
+  deletehirecontract(id: ID!): Hirecontract!
+}
+
+type User {
+  id: ID!
+  firstname: String!
+  lastname: String!
+  username: String!
+  email: String!
+  roles: String!
+  subcontracts: [Subcontract]
+  hirecontracts: [Hirecontract]
+  createdAt: Date!
+}
+
+type Subcontract {
+  id: ID!
+  accountnumber: String!
+  budget: Int!
+  district: String!
+  email: String!
+  idcard: String!
+  lineid: String!
+  member: Float!
+  nameofaccount: String!
+  nameofbank: String!
+  name: String!
+  natureofwork: String!
+  promptpay: String!
+  province: String!
+  skill: String!
+  subdistrict: String!
+  tel: String!
+  username: String!
+  yearskill: Float!
+  zip: String!
+  status: String!
+  subcontractCreatorId: User!
+  createdAt: Date!
+}
+
+type Hirecontract {
+  id: ID!
+  condition: String!
+  detail: String!
+  typeofwork: String!
+  budget: Float!
+  zone: String!
+  duration: Float!
+  startDate: Date
+  endDate: Date
+  status: String!
+  hirecontractCreatorId: User!
+  subcontractCreatorId: User
+  createdAt: Date!
+}
+
+type AuthData {
+  user: User
+  jwt: String
+}
+
+type Message {
+  message: String
+}
