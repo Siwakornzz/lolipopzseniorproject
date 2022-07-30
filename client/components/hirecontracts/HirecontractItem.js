@@ -47,6 +47,8 @@ const HirecontractItem = ({ hirecontract }) => {
           ...hirecontractData,
           budget: +hirecontractData.budget,
           duration: +hirecontractData.duration,
+          condition: hirecontractData.condition?.replace(/\s/g, ""),
+          typeofwork: hirecontractData.typeofwork?.replace(/\s/g, ""),
         },
       });
       alert("Update Hirecontract Success");

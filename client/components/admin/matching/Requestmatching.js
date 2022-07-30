@@ -36,25 +36,82 @@ const Requestmatching = () => {
   });
 
   // TODO matching Data
-  const matchings = () => {
+  const matchings = async () => {
     let matchingss = [];
-    if (subcontractsData.data.subcontracts.length >= 1) {
+    var tmpchecktypeofwork;
+    var tmpcheckskill;
+    console.log("sub", subcontractsData.data.subcontracts);
+    console.log("hire", data.hirecontract);
+    // console.log(subcontractsData.data.subcontracts.length)
+
+    if ((await subcontractsData.data.subcontracts.length) >= 1) {
       for (let i = 0; i < subcontractsData.data.subcontracts.length; i++) {
-        let tmpsubcontract = subcontractsData?.data?.subcontracts[i].skill
-          .split(",")
-          .map((item) => item.trim());
+        var subcontractId = subcontractsData.data.subcontracts[i].id;
+        let tmpsubcontractskill =
+          subcontractsData?.data?.subcontracts[i].skill.split(",");
 
-        let tmphirecontract = data?.hirecontract.detail
-          .split(",")
-          .map((item) => item.trim());
+        let tmpsubcontractnatureofwork =
+          subcontractsData?.data?.subcontracts[i].natureofwork.split(",");
 
-        for (let j = 0; j < tmpsubcontract.length; j++) {
+        let tmphirecontracttypeofwork =
+          data?.hirecontract.typeofwork.split(",");
 
-          if (tmphirecontract[i] === tmpsubcontract[j]) {
-            console.log(tmphirecontract[i]);
-            console.log(tmpsubcontract[j]);
+        let tmphirecontractcondition = data?.hirecontract.condition.split(",");
+
+        console.log(
+          "sub split",
+          tmpsubcontractnatureofwork,
+          tmphirecontracttypeofwork
+        );
+        console.log(
+          "hire split",
+          tmphirecontracttypeofwork,
+          tmphirecontractcondition
+        );
+        // check budget
+        if (
+          data.hirecontract.budget >=
+          subcontractsData.data.subcontracts[i].budget
+        ) {
+          // check province
+          if (
+            data.hirecontract.zone ===
+            subcontractsData.data.subcontracts[i].province
+          ) {
+            // check typeofwork
+            tmpchecktypeofwork = 0;
+            for (let j = 0; j < tmphirecontracttypeofwork.length; j++) {
+              for (let k = 0; k < tmpsubcontractnatureofwork.length; k++) {
+                if (
+                  tmphirecontracttypeofwork[j] === tmpsubcontractnatureofwork[k]
+                ) {
+                  tmpchecktypeofwork = tmpchecktypeofwork + 1;
+                }
+              }
+              console.log("tmpchecktype", tmpchecktypeofwork);
+            }
+
+            // check if subcontractnatureofwork > 0
+            tmpcheckskill = 0;
+            if (tmpchecktypeofwork >= 1) {
+              for (let l = 0; l < tmphirecontractcondition.length; l++) {
+                for (let m = 0; m < tmpsubcontractskill.length; m++) {
+                  console.log(
+                    "tmphirecontractcondition",
+                    tmphirecontractcondition
+                  );
+                  console.log("tmpsubcontractskill", tmpsubcontractskill);
+                  if (tmphirecontractcondition[l] === tmpsubcontractskill[m]) {
+                    tmpcheckskill = tmpcheckskill + 1;
+                  }
+                }
+              }
+              if (tmpcheckskill >= 1) {
+                matchingss.push(subcontractId);
+              }
+            }
+            console.log(tmpcheckskill);
           }
-          
         }
       }
       if (matchingss.length <= 0) {

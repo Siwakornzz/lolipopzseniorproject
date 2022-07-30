@@ -11,14 +11,20 @@ const SubcontractSchema = new mongoose.Schema({
   },
   email: {
     type: String,
+    lowercase: true,
+    trim: true,
     required: true,
   },
   skill: {
     type: String,
+    lowercase: true,
+    trim: true,
     required: true,
   },
   natureofwork: {
     type: String,
+    lowercase: true,
+    trim: true,
     required: true,
   },
   yearskill: {
@@ -79,7 +85,7 @@ const SubcontractSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    default: "WAITING"
+    default: "WAITING",
   },
   subcontractCreatorId: {
     type: mongoose.Schema.Types.ObjectId,

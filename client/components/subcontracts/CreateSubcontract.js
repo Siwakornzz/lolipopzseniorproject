@@ -36,6 +36,8 @@ const CreateSubcontracts = () => {
         yearskill: +subcontractData.yearskill,
         member: +subcontractData.member,
         budget: +subcontractData.budget,
+        skill: subcontractData.skill?.replace(/\s/g, ""),
+        natureofwork: subcontractData.natureofwork?.replace(/\s/g, "")
       },
       refetchQueries: [{ query: QUERY_SUBCONTRACTS }],
     }

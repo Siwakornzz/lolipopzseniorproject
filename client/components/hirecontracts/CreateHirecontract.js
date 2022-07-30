@@ -14,6 +14,8 @@ const CreateHirecontract = () => {
         ...hirecontractData,
         budget: +hirecontractData.budget,
         duration: +hirecontractData.duration,
+        condition: hirecontractData.condition?.replace(/\s/g, ""),
+        typeofwork: hirecontractData.typeofwork?.replace(/\s/g, "")
       },
       refetchQueries: [{ query: QUERY_HIRECONTRACTS }],
     }
@@ -58,7 +60,7 @@ const CreateHirecontract = () => {
                       className="form-control bg-white border-left-0 border-md col-md-6"
                       type="text"
                       name="condition"
-                      placeholder="รายละเอียดงาน"
+                      placeholder="เงื่อนไขภาษาที่ต้องการ"
                       value={hirecontractData.condition}
                       onChange={handleChange}
                       required
@@ -74,7 +76,7 @@ const CreateHirecontract = () => {
                     <input
                       type="text"
                       name="detail"
-                      placeholder="ภาษาโปรแกรมที่ใช้"
+                      placeholder="รายละเอียดงาน"
                       value={hirecontractData.detail}
                       onChange={handleChange}
                       required

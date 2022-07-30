@@ -44,6 +44,8 @@ const SubcontractItem = ({ subcontract }) => {
           ...subcontractData,
           yearskill: +subcontractData.yearskill,
           member: +subcontractData.member,
+          skill: subcontractData.skill?.replace(/\s/g, ""),
+          natureofwork: subcontractData.natureofwork?.replace(/\s/g, ""),
         },
       });
       alert("Update Subcontract Success");

@@ -4,6 +4,8 @@ const HirecontractSchema = new mongoose.Schema({
 
   condition: {
     type: String,
+    lowercase: true,
+    trim: true,
     required: true,
   },
   detail: {
@@ -12,6 +14,8 @@ const HirecontractSchema = new mongoose.Schema({
   },
   typeofwork: {
     type: String,
+    lowercase: true,
+    trim: true,
     required: true,
   },
   budget: {
@@ -20,6 +24,8 @@ const HirecontractSchema = new mongoose.Schema({
   },
   zone: {
     type: String,
+    lowercase: true,
+    trim: true,
     required: true,
   },
   duration: {

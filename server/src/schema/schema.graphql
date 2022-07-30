@@ -10,7 +10,7 @@ type Query {
   subcontractsdenied: [Subcontract]
   subcontractspendingcancel: [Subcontract]
   adminapprovesubcontractspendingcancel: [Subcontract]
-  adminapprovesubcontractscancel: [Subcontract]
+
   hirecontract(id: ID!): Hirecontract
   hirecontracts: [Hirecontract]
   hirecontractswaiting: [Hirecontract]
