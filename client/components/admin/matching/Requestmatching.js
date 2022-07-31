@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/react-hooks";
-import React from "react";
+import React, { useState } from "react";
 import {
   QUERY_HIRECONTRACT,
   QUERY_SUBCONTRACTS,
@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 
 const Requestmatching = () => {
   const route = useRouter();
+  const [datamatching , setDatamatching ] = useState([])
   const { data, loading, error } = useQuery(QUERY_HIRECONTRACT, {
     variables: { id: route.query.matchingId },
   });
@@ -37,7 +38,7 @@ const Requestmatching = () => {
 
   // TODO matching Data
   const matchings = async () => {
-    let matchingss = [];
+    var matchingss = []
     var tmpchecktypeofwork;
     var tmpcheckskill;
     console.log("sub", subcontractsData.data.subcontracts);
@@ -46,7 +47,7 @@ const Requestmatching = () => {
 
     if ((await subcontractsData.data.subcontracts.length) >= 1) {
       for (let i = 0; i < subcontractsData.data.subcontracts.length; i++) {
-        var subcontractId = subcontractsData.data.subcontracts[i].id;
+        var subcontractId = subcontractsData.data.subcontracts[i];
         let tmpsubcontractskill =
           subcontractsData?.data?.subcontracts[i].skill.split(",");
 
@@ -129,6 +130,7 @@ const Requestmatching = () => {
       });
     }
     console.log(matchingss);
+    setDatamatching(matchingss);
   };
   // console.log(data);
   if (error) {
@@ -144,6 +146,13 @@ const Requestmatching = () => {
       <p>{data?.hirecontract.id}</p>
       <p>{data?.hirecontract.detail}</p>
       <button onClick={matchings}> Matching </button>
+
+      {datamatching?.map((v) => (
+        <div>
+          <button> asdasdas</button>
+          <p>{v.id}</p>
+        </div>
+      ))}
     </div>
   );
 };
