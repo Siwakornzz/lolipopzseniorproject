@@ -100,6 +100,11 @@ type Mutation {
   ): Hirecontract!
 
   deletehirecontract(id: ID!): Hirecontract!
+
+  assignsubtohire(
+    id: ID!
+    subcontractAcceptHirecontractId: ID!
+  ): Hirecontract!
 }
 
 type User {
@@ -136,6 +141,7 @@ type Subcontract {
   yearskill: Float!
   zip: String!
   status: String!
+  hirecontractWorkId: [Hirecontract]
   subcontractCreatorId: User!
   createdAt: Date!
 }
@@ -152,7 +158,7 @@ type Hirecontract {
   endDate: Date
   status: String!
   hirecontractCreatorId: User!
-  subcontractCreatorId: User
+  subcontractAcceptHirecontractId: Subcontract
   createdAt: Date!
 }
 

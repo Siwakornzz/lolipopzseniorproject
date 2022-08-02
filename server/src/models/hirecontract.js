@@ -47,9 +47,9 @@ const HirecontractSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
-  subcontractCreatorId: {
+  subcontractAcceptHirecontractId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    ref: "Subcontract",
   },
   createdAt: {
     type: Date,

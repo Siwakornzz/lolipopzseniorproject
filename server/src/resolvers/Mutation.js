@@ -382,4 +382,54 @@ export const Mutation = {
     });
     return deleteHirecontract;
   },
+
+  // matching
+
+  // assign subcontractCreatorId to hirecontract collection
+
+  assignsubtohire: async (parent, args, {userId}, info) => {
+    const id = args.id;
+    const subcontractAcceptHirecontractId =
+      args.subcontractAcceptHirecontractId;
+
+    console.log(id, subcontractAcceptHirecontractId);
+    if (!userId) throw new Error("You Not Authorized !");
+
+    const user = await User.findById(userId);
+    const hirecontract = await Hirecontract.findById(id);
+
+    if (user.roles !== "Admin") throw new Error("You Not Authorized !");
+
+    if (!hirecontract.subcontractAcceptHirecontractId) {
+      hirecontract.subcontractAcceptHirecontractId =
+        subcontractAcceptHirecontractId;
+    } else {
+      hirecontract.subcontractAcceptHirecontractId =
+        subcontractAcceptHirecontractId;
+    }
+
+    const subcontract = await Subcontract.findById(
+      subcontractAcceptHirecontractId
+    );
+
+    if (!subcontract.hirecontractWorkId) {
+      subcontract.hirecontractWorkId = [];
+    }
+    subcontract.hirecontractWorkId.push(id);
+    hirecontract.status = "กำลังรอการตอบรับจากผู้รับเหมาช่วง"
+
+    await hirecontract.save();
+    await subcontract.save();
+
+    const assignhirecontract = await Hirecontract.findById(id)
+      .populate({
+        path: "hirecontractCreatorId",
+        populate: { path: "hirecontracts" },
+      })
+      .populate({
+        path: "subcontractAcceptHirecontractId",
+        populate: { path: "subcontracts" },
+      });
+    return assignhirecontract;
+  },
 };

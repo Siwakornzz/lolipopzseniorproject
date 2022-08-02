@@ -1,21 +1,25 @@
 import { useRouter } from "next/router";
+import { useMutation } from "@apollo/react-hooks";
 import { useQuery } from "@apollo/react-hooks";
 import React, { useState } from "react";
 import {
   QUERY_HIRECONTRACT,
+  QUERY_HIRECONTRACTSWAITING,
   QUERY_SUBCONTRACTS,
 } from "../../../apollo/queries";
 import Swal from "sweetalert2";
+import { ASSIGN_HIRECONTRACT } from "../../../apollo/mutations";
 
 const Requestmatching = () => {
   const route = useRouter();
-  const [datamatching , setDatamatching ] = useState([])
+  const [datamatching, setDatamatching] = useState([]);
+
   const { data, loading, error } = useQuery(QUERY_HIRECONTRACT, {
     variables: { id: route.query.matchingId },
   });
-
+  const hirecontractId = route.query.matchingId
   const subcontractsData = useQuery(QUERY_SUBCONTRACTS, {
-    onCompleted: (loading, error) => {
+    onCompleted: (data, loading, error) => {
       if (!data) {
         return Swal.fire({
           icon: "error",
@@ -38,7 +42,7 @@ const Requestmatching = () => {
 
   // TODO matching Data
   const matchings = async () => {
-    var matchingss = []
+    var matchingss = [];
     var tmpchecktypeofwork;
     var tmpcheckskill;
     console.log("sub", subcontractsData.data.subcontracts);
@@ -131,8 +135,49 @@ const Requestmatching = () => {
     }
     console.log(matchingss);
     setDatamatching(matchingss);
+    
   };
   // console.log(data);
+  const handleSelect = async (id) => {
+    try{
+      await assign({
+        variables: {
+          id: hirecontractId,
+          subcontractAcceptHirecontractId: id
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const [assign] = useMutation(ASSIGN_HIRECONTRACT, {
+  
+    onCompleted: (data, loading, error) => {
+      if (data) {
+        Swal.fire({
+          icon: "success",
+          title: "LOLIPOPZ",
+          text: "ASSIGN WORK TO SUBCONTRACTS SUCCESS",
+        });
+      }
+      if (loading) {
+        Swal.fire({
+          icon: "info",
+          title: "LOLIPOPZ",
+          text: "ASSIGNING WORK TO SUBCONTRACTS",
+        });
+      }
+      if (error) {
+        Swal.fire({
+          icon: "error",
+          title: "LOLIPOPZ",
+          text: "Something Wrogn Try Again Later",
+        });
+      }
+    },
+    refetchQueries: [{ query: QUERY_HIRECONTRACTSWAITING }],
+  });
   if (error) {
     return <p> Something went wrong</p>;
   }
@@ -140,19 +185,55 @@ const Requestmatching = () => {
   if (loading) {
     return <p> Loading...</p>;
   }
+ 
+
+
+ 
 
   return (
-    <div>
-      <p>{data?.hirecontract.id}</p>
-      <p>{data?.hirecontract.detail}</p>
-      <button onClick={matchings}> Matching </button>
+    <div class="mt-5 text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">SUBCONTRACT REQUESTMATCHING</div>
+              <div class="card-body">
+                <p>{data?.hirecontract.id}</p>
+                <p>{data?.hirecontract.detail}</p>
+                <button class="btn btn-primary" onClick={matchings}>
+                  {" "}
+                  Matching{" "}
+                </button>
+              </div>
+            </div>
+          </div>
 
-      {datamatching?.map((v) => (
-        <div>
-          <button> asdasdas</button>
-          <p>{v.id}</p>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header"> SUBCONTRACT LIST :)</div>
+              <div class="card-body">
+                {datamatching?.map((v) => (
+                  <>
+                    <div class="card mt-1">
+                      <div class="card-header">SUBCONTRACTNAME : {v.name}</div>
+                      <div class="card-body"></div>
+                      <p>SUBCONTRACT ID : {v.id} </p>
+                      <button
+                        class="btn btn-outline-primary w-50  m-auto p-auto mb-2 "
+                        onClick={async () => await handleSelect(v.id)}
+                      >
+                        {" "}
+                        SELECT{" "}
+                      </button>
+                    </div>
+                    <hr />
+                  </>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
-      ))}
+      </div>
     </div>
   );
 };

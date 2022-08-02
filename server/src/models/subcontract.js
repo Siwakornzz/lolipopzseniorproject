@@ -92,6 +92,12 @@ const SubcontractSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
+  hirecontractWorkId: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Hirecontract",
+    },
+  ],
   createdAt: {
     type: Date,
     default: () => Date.now() + 60 * 60 * 1000 * 7,

@@ -12,6 +12,7 @@ const Nav = () => {
   }, []);
 
   const { user, signout } = useContext(AuthContext);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-3">
       <div className="container-fluid">
@@ -36,12 +37,16 @@ const Nav = () => {
               <>
                 <Link href="/signin">
                   <li className="nav-item">
-                    <a className="nav-link mx-2" style={{ cursor: "pointer" }}>SignIn</a>
+                    <a className="nav-link mx-2" style={{ cursor: "pointer" }}>
+                      SignIn
+                    </a>
                   </li>
                 </Link>
                 <Link href="/signup">
                   <li className="nav-item">
-                    <a className="nav-link mx-2" style={{ cursor: "pointer" }}>SignUp</a>
+                    <a className="nav-link mx-2" style={{ cursor: "pointer" }}>
+                      SignUp
+                    </a>
                   </li>
                 </Link>
               </>
@@ -56,7 +61,7 @@ const Nav = () => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <i class="bi bi-person-circle"></i> {user.username}
+                  <i className="bi bi-person-circle"></i> {user.username}
                 </a>
                 <ul
                   className="dropdown-menu"
@@ -67,11 +72,12 @@ const Nav = () => {
                       {/* ADMIN */}
                       <div className="dropdown-content">
                         <a style={{ display: "block", cursor: "context-menu" }}>
-                          &nbsp; &nbsp; <i class="bi bi-person-workspace"></i>
+                          &nbsp; &nbsp;{" "}
+                          <i className="bi bi-person-workspace"></i>
                           &nbsp; ADMIN
                         </a>
                       </div>
-                      <hr class="dropdown-divider" />
+                      <hr className="dropdown-divider" />
 
                       <Link href="/admin">
                         <li style={{ cursor: "pointer" }}>
@@ -97,18 +103,18 @@ const Nav = () => {
                         </li>
                       </Link>
 
-                      <hr class="dropdown-divider" />
+                      <hr className="dropdown-divider" />
                     </>
                   )}
 
                   {/* USER */}
                   <div className="dropdown-content">
                     <a style={{ display: "block", cursor: "context-menu" }}>
-                      &nbsp; &nbsp; <i class="bi bi-person"></i>
+                      &nbsp; &nbsp; <i className="bi bi-person"></i>
                       &nbsp; USER
                     </a>
                   </div>
-                  <hr class="dropdown-divider" />
+                  <hr className="dropdown-divider" />
 
                   <Link href="/subcontracts">
                     <li style={{ cursor: "pointer" }}>
@@ -134,7 +140,7 @@ const Nav = () => {
                     </li>
                   </Link>
 
-                  <hr class="dropdown-divider" />
+                  <hr className="dropdown-divider" />
 
                   <li style={{ cursor: "pointer" }}>
                     <a
@@ -142,7 +148,7 @@ const Nav = () => {
                       style={{ cursor: "pointer" }}
                       onClick={signout}
                     >
-                      <i class="bi bi-box-arrow-right"></i> SIGNOUT
+                      <i className="bi bi-box-arrow-right"></i> SIGNOUT
                     </a>
                   </li>
                 </ul>
@@ -153,6 +159,8 @@ const Nav = () => {
       </div>
     </nav>
   );
+  
 };
+
 
 export default Nav;

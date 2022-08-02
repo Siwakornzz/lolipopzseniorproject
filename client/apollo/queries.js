@@ -92,6 +92,12 @@ export const QUERY_SUBCONTRACT = gql`
       promptpay
       status
       createdAt
+      hirecontractWorkId {
+      id
+      detail
+      zone
+      budget
+    }
       subcontractCreatorId {
         id
         username
@@ -127,6 +133,12 @@ export const QUERY_SUBCONTRACTS = gql`
       promptpay
       status
       createdAt
+      hirecontractWorkId {
+      id
+      detail
+      zone
+      budget
+    }
       subcontractCreatorId {
         id
         username
@@ -151,10 +163,9 @@ export const QUERY_HIRECONTRACT = gql`
       duration
       status
       createdAt
-      subcontractCreatorId {
+      subcontractAcceptHirecontractId{
         id
-        username
-        email
+        name
       }
       hirecontractCreatorId {
         id
@@ -178,10 +189,9 @@ export const QUERY_HIRECONTRACTS = gql`
       duration
       status
       createdAt
-      subcontractCreatorId {
+      subcontractAcceptHirecontractId{
         id
-        username
-        email
+        name
       }
       hirecontractCreatorId {
         id
@@ -205,10 +215,9 @@ export const QUERY_HIRECONTRACTSWAITING = gql`
       duration
       status
       createdAt
-      subcontractCreatorId {
+      subcontractAcceptHirecontractId{
         id
-        username
-        email
+        name
       }
       hirecontractCreatorId {
         id
