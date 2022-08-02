@@ -31,9 +31,9 @@ const Home = () => {
           <div className="carousel-inner">
             <div className="carousel-item active">
               <img
-                src="https://repository-images.githubusercontent.com/228492673/5a260300-20ed-11ea-959e-76e07179711e"
+                src="https://images.pexels.com/photos/574087/pexels-photo-574087.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 width="100%"
-                height="419px"
+                height="682px"
               />
 
               <div className="container">
@@ -56,56 +56,47 @@ const Home = () => {
               </div>
             </div>
             <div className="carousel-item">
-              <svg
-                className="bd-placeholder-img"
+              <img
+                src="https://images.pexels.com/photos/1181316/pexels-photo-1181316.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 width="100%"
-                height="100%"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <rect width="100%" height="100%" fill="#777" />
-              </svg>
+                height="682px"
+              />
+
+              <rect width="100%" height="100%" fill="#777" />
 
               <div className="container">
                 <div className="carousel-caption">
-                  <h1>Another example headline.</h1>
+                  <h1>ทำไมถึงต้องใช้ Lolipopz?</h1>
                   <p>
-                    Some representative placeholder content for the second slide
-                    of the carousel.
+                    เพราะเราเปลี่ยนไอเดียของคุณให้เป็นความจริง
+                    ด้วยฟรีแลนซ์มืออาชีพ
                   </p>
                   <p>
                     <a className="btn btn-lg btn-primary" href="#">
-                      Learn more
+                      ดูรายละเอียด
                     </a>
                   </p>
                 </div>
               </div>
             </div>
             <div className="carousel-item">
-              <svg
-                className="bd-placeholder-img"
+              <img
+                src="https://images.pexels.com/photos/1181359/pexels-photo-1181359.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 width="100%"
-                height="100%"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <rect width="100%" height="100%" fill="#777" />
-              </svg>
+                height="682px"
+              />
+              <rect width="100%" height="100%" fill="#777" />
 
               <div className="container">
                 <div className="carousel-caption text-end">
-                  <h1>One more for good measure.</h1>
+                  <h1>ศูนย์รวมฟรีแลนซ์คุณภาพ</h1>
                   <p>
-                    Some representative placeholder content for the third slide
-                    of this carousel.
+                    ค้นพบฟรีแลนซ์ที่ถูกใจ จากศูนย์รวมฟรีแลนซ์คุณภาพตัวจริง
+                    เพื่อให้ธุรกิจของคุณ ก้าวไปอย่างกับติดปีกบิน
                   </p>
                   <p>
                     <a className="btn btn-lg btn-primary" href="#">
-                      Browse gallery
+                      ดูรายละเอียด
                     </a>
                   </p>
                 </div>
@@ -146,22 +137,11 @@ const Home = () => {
           {/* <!-- Three columns of text below the carousel --> */}
           <div className="row mt-5">
             <div className="col-lg-4">
-              <svg
-                className="bd-placeholder-img rounded-circle"
-                width="140"
-                height="140"
-                xmlns="https://www.svgrepo.com/show/295404/development-web-development.svg"
-                role="img"
-                aria-label="Placeholder: 140x140"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777" />
-                <text x="50%" y="50%" fill="#777" dy=".3em">
-                  140x140
-                </text>
-              </svg>
+              <img
+                src="https://media.discordapp.net/attachments/691648892051390474/1004015212946542692/unknown.png"
+                width="142"
+                height="142"
+              />
 
               <h2>Web Development </h2>
               <p>พัฒนาและออกแบบเว็บไซต์</p>
@@ -173,22 +153,11 @@ const Home = () => {
             </div>
 
             <div className="col-lg-4">
-              <svg
-                className="bd-placeholder-img rounded-circle"
-                width="140"
-                height="140"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Placeholder: 140x140"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777" />
-                <text x="50%" y="50%" fill="#777" dy=".3em">
-                  140x140
-                </text>
-              </svg>
+              <img
+                src="https://www.coops.tech/images/technologies/wordpress.png"
+                width="142"
+                height="142"
+              />
 
               <h2>WORDPRESS</h2>
               <p>สร้างเว็บไซต์สำเร็จรูปด้วย Wordpress</p>
@@ -199,22 +168,11 @@ const Home = () => {
               </p>
             </div>
             <div className="col-lg-4">
-              <svg
-                className="bd-placeholder-img rounded-circle"
-                width="140"
-                height="140"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Placeholder: 140x140"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777" />
-                <text x="50%" y="50%" fill="#777" dy=".3em">
-                  140x140
-                </text>
-              </svg>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/3616/3616049.png"
+                width="142"
+                height="142"
+              />
 
               <h2>Mobile Application</h2>
               <p>สร้าง Application บน iOS และ Android</p>
@@ -225,22 +183,11 @@ const Home = () => {
               </p>
             </div>
             <div className="col-lg-4">
-              <svg
-                className="bd-placeholder-img rounded-circle"
-                width="140"
-                height="140"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Placeholder: 140x140"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777" />
-                <text x="50%" y="50%" fill="#777" dy=".3em">
-                  140x140
-                </text>
-              </svg>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/443/443538.png?w=360"
+                width="142"
+                height="142"
+              />
 
               <h2>UX/UI Design for Web & App </h2>
               <p>ออกแบบหน้าตาเว็บไซต์</p>
@@ -251,22 +198,11 @@ const Home = () => {
               </p>
             </div>
             <div className="col-lg-4">
-              <svg
-                className="bd-placeholder-img rounded-circle"
-                width="140"
-                height="140"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Placeholder: 140x140"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777" />
-                <text x="50%" y="50%" fill="#777" dy=".3em">
-                  140x140
-                </text>
-              </svg>
+              <img
+                src="https://icon-library.com/images/it-icon/it-icon-3.jpg"
+                width="142"
+                height="142"
+              />
 
               <h2>IT Solution และ Support</h2>
               <p>แก้ไขปัญหา ติดตั้งและวางระบบเซิฟเวอร์</p>
@@ -277,22 +213,11 @@ const Home = () => {
               </p>
             </div>
             <div className="col-lg-4">
-              <svg
-                className="bd-placeholder-img rounded-circle"
-                width="140"
-                height="140"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Placeholder: 140x140"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777" />
-                <text x="50%" y="50%" fill="#777" dy=".3em">
-                  140x140
-                </text>
-              </svg>
+              <img
+                src="https://www.nicepng.com/png/full/119-1192437_software-development-desktop-application-development-icon.png"
+                width="142"
+                height="142"
+              />
 
               <h2>Desktop Application</h2>
               <p>เขียนโปรแกรมบน Windows</p>
@@ -303,22 +228,11 @@ const Home = () => {
               </p>
             </div>
             <div className="col-lg-4">
-              <svg
-                className="bd-placeholder-img rounded-circle"
-                width="140"
-                height="140"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Placeholder: 140x140"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777" />
-                <text x="50%" y="50%" fill="#777" dy=".3em">
-                  140x140
-                </text>
-              </svg>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/3649/3649460.png"
+                width="142"
+                height="142"
+              />
 
               <h2>Chatbot </h2>
 
@@ -330,22 +244,11 @@ const Home = () => {
             </div>
             {/* <!-- /.col-lg-4 --> */}
             <div className="col-lg-4">
-              <svg
-                className="bd-placeholder-img rounded-circle"
-                width="140"
-                height="140"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Placeholder: 140x140"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777" />
-                <text x="50%" y="50%" fill="#777" dy=".3em">
-                  140x140
-                </text>
-              </svg>
+              <img
+                src="https://uploads-ssl.webflow.com/5eb586cf7696a9c27238a7ed/6095431c47d094515c19ca88_Byteline-icon2.png"
+                width="142"
+                height="142"
+              />
 
               <h2>Website Scraping </h2>
 
@@ -357,22 +260,11 @@ const Home = () => {
             </div>
             {/* <!-- /.col-lg-4 --> */}
             <div className="col-lg-4">
-              <svg
-                className="bd-placeholder-img rounded-circle"
-                width="140"
-                height="140"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Placeholder: 140x140"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#777" />
-                <text x="50%" y="50%" fill="#777" dy=".3em">
-                  140x140
-                </text>
-              </svg>
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/6212/6212609.png"
+                width="142"
+                height="142"
+              />
 
               <h2>ทำโปรเจค IoT</h2>
 
@@ -393,31 +285,32 @@ const Home = () => {
           <div className="row featurette">
             <div className="col-md-7">
               <h2 className="featurette-heading">
-                First featurette heading.{" "}
-                <span className="text-muted">It’ll blow your mind.</span>
+                Lolipopz{" "}
+                <span className="text-muted">ที่หนึ่งแห่งฟรีแลนซ์คุณภาพ</span>
               </h2>
               <p className="lead">
-                Some great placeholder content for the first featurette here.
-                Imagine some exciting prose here.
+                Lolipopz คือเว็บไซต์ที่รวบรวม ฟรีแลนซ์
+                มืออาชีพจากหลากหลายสายงานไว้ในที่เดียวกัน ไม่ว่าจะเป็น
+                งานออกแบบโลโก้ ทำแบนเนอร์โฆษณา เขียนบทความ แปลภาษา
+                การตลาดออนไลน์ พัฒนาเว็บไซต์ และงานอื่นๆ อีกกว่า 90 หมวดหมู่
+                เพื่อตอบโจทย์ความต้องการที่หลากหลายของทั้งผู้ประกอบการและผู้ใช้งานทั่วไป
+                ทีมงานของเราพัฒนา Lolipopz ขึ้นโดยเน้นความเรียบง่าย
+                และความสะดวกรวดเร็วในการใช้งาน
+                ด้วยแนวคิดที่จะสร้างสรรค์แพลทฟอร์มที่จะช่วยประหยัดเวลาให้กับทั้ง
+                ฟรีแลนซ์ และลูกค้า
+                อีกทั้งยังมุ่งมั่นที่จะสนับสนุนการสร้างธุรกิจใหม่
+                และต่อยอดธุรกิจให้กับผู้ประกอบการทั้งรายใหญ่รายย่อย
+                และยังช่วยเหลือ ฟรีแลนซ์ ให้หางานได้ง่าย
+                สร้างรายได้ให้มากขึ้นและมั่นคง
+                ตลอดจนยกระดับมาตรฐานฟรีแลนซ์ไทยให้มีคุณภาพที่ดีขึ้นอีกด้วย
               </p>
             </div>
             <div className="col-md-5">
-              <svg
-                className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-                width="500"
+              <img
+                src="https://images.pexels.com/photos/2102415/pexels-photo-2102415.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                width="400"
                 height="500"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Placeholder: 500x500"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#eee" />
-                <text x="50%" y="50%" fill="#aaa" dy=".3em">
-                  500x500
-                </text>
-              </svg>
+              />
             </div>
           </div>
 
@@ -425,33 +318,30 @@ const Home = () => {
 
           <div className="row featurette">
             <div className="col-md-7 order-md-2">
-              <h2 className="featurette-heading">
-                Oh yeah, it’s that good.{" "}
-                <span className="text-muted">See for yourself.</span>
-              </h2>
               <p className="lead">
-                Another featurette? Of course. More placeholder content here to
-                give you an idea of how this layout would work with some actual
-                real-world content in place.
+                ด้วยเหตุนี้ Lolipopz
+                จึงทำหน้าที่เสมือนเป็นพื้นที่สื่อกลางออนไลน์ระหว่าง ฟรีแลนซ์
+                และผู้ที่มีความต้องการจ้างงานให้มาเจอกันได้ทุกที่ทุกเวลา โดยที่
+                ฟรีแลนซ์ จะใช้เว็บไซต์ Lolipopz
+                เป็นพื้นที่ในการลงประกาศรับจ้างงาน
+                ในขณะที่ลูกค้าก็สามารถเข้ามาค้นหางานของ ฟรีแลนซ์
+                ที่ต้องการได้ในที่เดียวกัน
+                อีกทั้งยังมีอิสระในการเลือกจ้างงานเป็นครั้งๆได้
+                สามารถเปรียบเทียบราคาและคุณภาพผลงานของ ฟรีแลนซ์
+                ที่มีอยู่หลากหลาย เพื่อให้ตรงกับความต้องการมากที่สุดอีกด้วย
+                นอกจากนี้ ด้วยระบบการชำระเงินที่ปลอดภัยของ Lolipopz
+                ยังช่วยรับประกันการส่งมอบงานที่ครบถ้วนถูกต้องให้กับฝั่งลูกค้า
+                ด้วยการเป็นตัวกลางในการถือเงินระหว่างที่ ฟรีแลนซ์ กำลังทำงาน
+                และในทางกลับกันก็ช่วยรับประกันการส่งมอบเงินค่าจ้างให้กับ
+                ฟรีแลนซ์ เมื่อทำงานสำเร็จและส่งมอบให้ลูกค้าด้วยเช่นกัน
               </p>
             </div>
             <div className="col-md-5 order-md-1">
-              <svg
-                className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-                width="500"
+              <img
+                src="https://images.pexels.com/photos/2102413/pexels-photo-2102413.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                width="400"
                 height="500"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Placeholder: 500x500"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#eee" />
-                <text x="50%" y="50%" fill="#aaa" dy=".3em">
-                  500x500
-                </text>
-              </svg>
+              />
             </div>
           </div>
 
@@ -459,34 +349,25 @@ const Home = () => {
 
           <div className="row featurette">
             <div className="col-md-7">
-              <h2 className="featurette-heading">
-                And lastly, this one.{" "}
-                <span className="text-muted">Checkmate.</span>
-              </h2>
               <p className="lead">
-                And yes, this is the last block of representative placeholder
-                content. Again, not really intended to be actually read, simply
-                here to give you a better view of what this would look like with
-                some actual content. Your content.
+                ปัจจุบัน Lolipopz มี ฟรีแลนซ์ ที่ผ่านการคัดกรองคุณภาพแล้วกว่า
+                50,000 คน ให้บริการในหมวดหมู่งานที่ครอบคลุมความต้องการกว่า 90
+                หมวดหมู่ ด้วยจำนวนงานที่หลากหลายมากกว่า 15,000 งาน
+                ซึ่งคัดแยกตามทักษะความสามารถของ ฟรีแลนซ์
+                เพื่อตอบโจทย์ความต้องการของลูกค้าอย่างครบวงจร
+                ไม่ว่าจะเป็นเจ้าของกิจการ ธุรกิจ SME แม่ค้าออนไลน์
+                หรือแม้แต่บุคคลทั่วไป
+                ที่กำลังมองหางานระดับมืออาชีพในราคาที่จับต้องได้
+                การันตีคุณภาพโดย Lolipopz แหล่งรวม ฟรีแลนซ์ มืออาชีพ
+                ที่ได้รับความไว้วางใจจากลูกค้ากว่า 700,000 ราย
               </p>
             </div>
             <div className="col-md-5">
-              <svg
-                className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-                width="500"
+              <img
+                src="https://images.pexels.com/photos/3861959/pexels-photo-3861959.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                width="400"
                 height="500"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-label="Placeholder: 500x500"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#eee" />
-                <text x="50%" y="50%" fill="#aaa" dy=".3em">
-                  500x500
-                </text>
-              </svg>
+              />
             </div>
           </div>
 

@@ -144,6 +144,7 @@ const Signup = () => {
                   class="form-control"
                   placeholder="Password"
                   name="password"
+                  minLength={6}
                   value={userInfo.password}
                   onChange={handleChange}
                   required

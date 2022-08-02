@@ -196,7 +196,7 @@ const Requestmatching = () => {
         <div class="row">
           <div class="col-md-6">
             <div class="card">
-              <div class="card-header">SUBCONTRACT REQUESTMATCHING</div>
+              <div class="card-header">HIRECONTRACT REQUESTMATCHING</div>
               <div class="card-body">
                 <p>{data?.hirecontract.id}</p>
                 <p>{data?.hirecontract.detail}</p>
