@@ -215,6 +215,8 @@ const Requestmatching = () => {
                       <div class="card-header">SUBCONTRACTNAME : {v.name}</div>
                       <div class="card-body"></div>
                       <p>SUBCONTRACT ID : {v.id} </p>
+                      <p> ประสบการณ์ในการทำงาน : {v.yearskill}  ปี</p>
+                      <p>งบประมาณ : {v.budget}</p>
 
                       <button
                         class="btn btn-outline-primary w-50 m-auto p-auto  mb-2  "
