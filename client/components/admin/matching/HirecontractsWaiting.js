@@ -16,11 +16,11 @@ const HirecontractsWaiting = () => {
       }
 
       if (data.hirecontractswaiting.length <= 0) {
-       Swal.fire({
-        icon: 'info',
-        title: 'LOLIPOPZ',
-        text: 'No Data Found Try Again Later or No Hirecontract Waiting to matching !'
-       })
+        Swal.fire({
+          icon: "info",
+          title: "LOLIPOPZ",
+          text: "No Data Found Try Again Later or No Hirecontract Waiting to matching !",
+        });
       }
     },
   });
@@ -40,11 +40,13 @@ const HirecontractsWaiting = () => {
                     as={`/admin/matching/${v.id}`}
                   >
                     <div class="col">
-                      <div class="card" style={{ cursor: "pointer" }}>
-                        <div class="card-header" >
-                          id : {v.id}
-                        </div>
+                      <div class="card  border-start-1 border border-2 border-end-1 border-top-1 border-bottom-1  border-primary  ms-5 mt-5 shadow " style={{ cursor: "pointer" }}>
+                      <img src="https://u7.uidownload.com/vector/583/394/vector-vaporwave-vector-background-illustration-ai-eps-svg.jpg" style={{height:"150px",maxWidth:"100%",width: "100%" ,objectFit: 'cover'}} class="card-img-top embed-responsive-item"  alt="..."/>
+                        <div class="card-header">id : {v.id}</div>
                         <div class="card-body"></div>
+                        <p> ประเภทของงาน : {v.typeofwork} </p>
+                        <p> เงื่อนไขภาษาที่ต้องการ : {v.condition} </p>
+                        <p> สถานะ : {v.status} </p>
                       </div>
 
                       <p> </p>

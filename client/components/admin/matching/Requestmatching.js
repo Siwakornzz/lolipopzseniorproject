@@ -17,7 +17,7 @@ const Requestmatching = () => {
   const { data, loading, error } = useQuery(QUERY_HIRECONTRACT, {
     variables: { id: route.query.matchingId },
   });
-  const hirecontractId = route.query.matchingId
+  const hirecontractId = route.query.matchingId;
   const subcontractsData = useQuery(QUERY_SUBCONTRACTS, {
     onCompleted: (data, loading, error) => {
       if (!data) {
@@ -135,15 +135,14 @@ const Requestmatching = () => {
     }
     console.log(matchingss);
     setDatamatching(matchingss);
-    
   };
   // console.log(data);
   const handleSelect = async (id) => {
-    try{
+    try {
       await assign({
         variables: {
           id: hirecontractId,
-          subcontractAcceptHirecontractId: id
+          subcontractAcceptHirecontractId: id,
         },
       });
     } catch (error) {
@@ -152,7 +151,6 @@ const Requestmatching = () => {
   };
 
   const [assign] = useMutation(ASSIGN_HIRECONTRACT, {
-  
     onCompleted: (data, loading, error) => {
       if (data) {
         Swal.fire({
@@ -185,22 +183,21 @@ const Requestmatching = () => {
   if (loading) {
     return <p> Loading...</p>;
   }
- 
-
-
- 
 
   return (
     <div class="mt-5 text-center">
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <div class="card">
-              <div class="card-header">HIRECONTRACT REQUESTMATCHING</div>
-              <div class="card-body">
-                <p>{data?.hirecontract.id}</p>
-                <p>{data?.hirecontract.detail}</p>
-                <button class="btn btn-primary" onClick={matchings}>
+            <div class="card ">
+              <div class="card-header text-center">
+                HIRECONTRACT REQUESTMATCHING
+              </div>
+              <div class="card-body ">
+                <p> <span style={{color: 'red'}}> ID : </span> {data?.hirecontract.id}</p>
+                <p> <span style={{color: 'red'}}> รายละเอียดของงาน : </span> {data?.hirecontract.detail}</p>
+                <p> <span style={{color: 'red'}}> งบประมาณ :  </span>{data?.hirecontract.budget}</p>
+                <button class="btn btn-outline-info" onClick={matchings}>
                   {" "}
                   Matching{" "}
                 </button>
@@ -208,18 +205,19 @@ const Requestmatching = () => {
             </div>
           </div>
 
-          <div class="col-md-6">
+          <div class="col-md-6 ">
             <div class="card">
               <div class="card-header"> SUBCONTRACT LIST :)</div>
               <div class="card-body">
                 {datamatching?.map((v) => (
                   <>
-                    <div class="card mt-1">
+                    <div class="card mt-1 ">
                       <div class="card-header">SUBCONTRACTNAME : {v.name}</div>
                       <div class="card-body"></div>
                       <p>SUBCONTRACT ID : {v.id} </p>
+
                       <button
-                        class="btn btn-outline-primary w-50  m-auto p-auto mb-2 "
+                        class="btn btn-outline-primary w-50 m-auto p-auto  mb-2  "
                         onClick={async () => await handleSelect(v.id)}
                       >
                         {" "}
