@@ -143,6 +143,19 @@ const HirecontractItem = ({ hirecontract }) => {
       </div>
 
       <div style={{ margin: "auto" }}>
+        {!edit ? (
+          <p>{hirecontractData.status}</p>
+        ) : (
+          <input
+            type="number"
+            name="budget"
+            value={hirecontractData.status}
+            onChange={handleChange}
+          />
+        )}
+      </div>
+
+      <div style={{ margin: "auto" }}>
         <p>{moment(hirecontractData.createdAt).locale("th").format("LLLL")}</p>
       </div>
       <div

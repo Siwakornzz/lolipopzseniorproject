@@ -1,31 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
+import InputAddress from "react-thailand-address-autocomplete";
 
 const test = () => {
+  const [fullAddress, setFulladdDress] = useState({});
+
+  console.log(fullAddress);
+  const onChange = (e) => {
+    setFulladdDress({
+      ...fullAddress,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const onSelect = (fullAddress) => {
+    setFulladdDress(fullAddress);
+  };
   return (
-    <>
-   <div class="row">
-              <div class="col-md-4 mb-4">
-                <div class="bg-image hover-overlay shadow-1-strong rounded ripple" data-mdb-ripple-color="light">
-                  <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" />
-                  <a href="#!">
-                    <div class="mask" style={{backgroundColor: "rgba(251, 251, 251, 0.15)"}}></div>
-                  </a>
-                </div>
-              </div>
+    <div>
+      จังหวัด
 
-              <div class="col-md-8 mb-4">
-                <h5>Very long post title</h5>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ratione
-                  necessitatibus itaque error alias repellendus nemo reiciendis aperiam quisquam
-                  minus ipsam reprehenderit commodi ducimus, in dicta aliquam eveniet dignissimos
-                  magni.
-                </p>
+      <InputAddress
+        address="province"
+        value={fullAddress.province}
+        onChange={onChange}
+        onSelect={onSelect}
+      />
 
-                <button type="button" class="btn btn-primary">Read</button>
-              </div>
-            </div>
-    </>
+      แขวง / ตำบล
+      <InputAddress
+        address="subdistrict"
+        value={fullAddress.subdistrict}
+        onChange={onChange}
+        onSelect={onSelect}
+      />
+      เขต / อำเภอ
+      <InputAddress
+        address="district"
+        value={fullAddress.district}
+        onChange={onChange}
+        onSelect={onSelect}
+      />
+
+      รหัสไปรษณีย์
+      <InputAddress
+        address="zipcode"
+        value={fullAddress.zipcode}
+        onChange={onChange}
+        onSelect={onSelect}
+      />
+    </div>
+    
   );
 };
 
