@@ -4,7 +4,8 @@ import { useQuery } from "@apollo/react-hooks";
 import { QUERY_SUBCONTRACTS } from "../../apollo/queries";
 
 const Subcontracts = () => {
-  const { data, loading, error } = useQuery(QUERY_SUBCONTRACTS, {});
+  const { data, loading, error } =  useQuery(QUERY_SUBCONTRACTS, {});
+
 
   if (error) {
     return <p> Something went wrong !</p>;
@@ -115,10 +116,10 @@ const Subcontracts = () => {
                 >
                   <div class="col-md-4">
                     <div class="profile-card-6">
-                      <img
-                        src="https://i.pinimg.com/originals/8b/41/90/8b4190c091d262986ef3d339655b8739.png"
+                    <img
+                        src="https://pbs.twimg.com/media/FNVBTYlaIAQLQ4I?format=jpg&name=4096x4096"
                         class="img img-responsive"
-                        hieght="500px"
+                        style={{width: '100%',height:'15v',objectFit:'cover'}}
                       />
                       <div class="profile-name">{v.name}</div>
                       <div class="profile-position"></div>

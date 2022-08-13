@@ -115,9 +115,9 @@ a:focus {
                   <div class="col-md-4">
                     <div class="profile-card-6">
                       <img
-                        src="https://i.pinimg.com/originals/8b/41/90/8b4190c091d262986ef3d339655b8739.png"
+                        src="https://pbs.twimg.com/media/FNVBTYlaIAQLQ4I?format=jpg&name=4096x4096"
                         class="img img-responsive"
-                        hieght="500px"
+                        style={{width: '100%',height:'15v',objectFit:'cover'}}
                       />
                       <div class="profile-name">{v.zone}</div>
                       <div class="profile-position"></div>

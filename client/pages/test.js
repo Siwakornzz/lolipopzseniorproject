@@ -1,55 +1,32 @@
+import { useQuery } from "@apollo/client";
+import { DataArray } from "@mui/icons-material";
+import MUIDataTable from "mui-datatables";
 import React, { useState } from "react";
-import InputAddress from "react-thailand-address-autocomplete";
+import { QUERY_HIRECONTRACTS } from "../apollo/queries";
 
 const test = () => {
-  const [fullAddress, setFulladdDress] = useState({});
+  const { data, loading, error } = useQuery(QUERY_HIRECONTRACTS, {});
+  const columns = ["Name", "Company", "City", "State"];
+  const datas = [
+    ["Joe James", "Test Corp", "Yonkers", "NY"],
+    ["John Walsh", "Test Corp", "Hartford", "CT"],
+    ["Bob Herm", "Test Corp", "Tampa", "FL"],
+    ["James Houston", "Test Corp", "Dallas", "TX"],
+  ];
 
-  console.log(fullAddress);
-  const onChange = (e) => {
-    setFulladdDress({
-      ...fullAddress,
-      [e.target.name]: e.target.value,
-    });
+  const options = {
+    filterType: "checkbox",
   };
 
-  const onSelect = (fullAddress) => {
-    setFulladdDress(fullAddress);
-  };
   return (
-    <div>
-      จังหวัด
-
-      <InputAddress
-        address="province"
-        value={fullAddress.province}
-        onChange={onChange}
-        onSelect={onSelect}
+    <>
+      <MUIDataTable
+        title={"ตารางคำร้องของผู้ว่าจ้าง"}
+        data={datas}
+        columns={columns}
+        options={options}
       />
-
-      แขวง / ตำบล
-      <InputAddress
-        address="subdistrict"
-        value={fullAddress.subdistrict}
-        onChange={onChange}
-        onSelect={onSelect}
-      />
-      เขต / อำเภอ
-      <InputAddress
-        address="district"
-        value={fullAddress.district}
-        onChange={onChange}
-        onSelect={onSelect}
-      />
-
-      รหัสไปรษณีย์
-      <InputAddress
-        address="zipcode"
-        value={fullAddress.zipcode}
-        onChange={onChange}
-        onSelect={onSelect}
-      />
-    </div>
-    
+    </>
   );
 };
 
