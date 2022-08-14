@@ -23,32 +23,22 @@ const Managehirecontracts = () => {
         </button>
       </div>
 
-      {/* Header */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr 1fr",
-          widht: "100%",
-          border: "1px solid black",
-          marginTop : '10px',
-        }}
-      >
-        <h5 style={{ margin: "auto" }}> ID </h5>
-        <h5 style={{ margin: "auto" }}> รายละเอียด</h5>
-        <h5 style={{ margin: "auto" }}>เงื่อนไข</h5>
-        <h5 style={{ margin: "auto" }}>ประเภทของงาน</h5>
-        <h5 style={{ margin: "auto" }}>งบประมาณ</h5>
-        <h5 style={{ margin: "auto" }}>สร้างเมื่อ</h5>
-        <h5 style={{ margin: "auto" }}> เมนู </h5>
-      </div>
-
       {/* Body */}
-      {data &&
-        data.user &&
-        data.user.hirecontracts.length > 0 &&
-        data.user.hirecontracts.map((hirecontract) => (
-          <HirecontractItem key={hirecontract.id} hirecontract={hirecontract} />
-        ))}
+      <div class="container">
+        <div class="row">
+          {data &&
+            data.user &&
+            data.user.hirecontracts.length > 0 &&
+            data.user.hirecontracts.map((hirecontract) => (
+              <div class="col-md-4">
+                <HirecontractItem
+                  key={hirecontract.id}
+                  hirecontract={hirecontract}
+                />
+              </div>
+            ))}
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,11 +1,28 @@
 import { useQuery } from "@apollo/client";
 import { DataArray } from "@mui/icons-material";
 import MUIDataTable from "mui-datatables";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { QUERY_HIRECONTRACTS } from "../apollo/queries";
 
 const test = () => {
-  const { data, loading, error } = useQuery(QUERY_HIRECONTRACTS, {});
+  const [dataHirecontract, setDataHirecontract] = useState({});
+
+  useEffect(() => {
+    () =>
+      useQuery(QUERY_HIRECONTRACTS, {
+        onCompleted: (data) => {
+          setDataHirecontract(data.hirecontracts);
+        },
+      });
+  });
+
+  if (dataHirecontract) {
+    // console.log(data.hirecontracts);
+    console.log(dataHirecontract);
+    // console.table(data.hirecontracts)
+  }
+
+  console.log(dataHirecontract);
   const columns = ["Name", "Company", "City", "State"];
   const datas = [
     ["Joe James", "Test Corp", "Yonkers", "NY"],

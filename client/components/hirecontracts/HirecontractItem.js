@@ -77,7 +77,58 @@ const HirecontractItem = ({ hirecontract }) => {
   };
 
   return (
-    <div
+    <>
+      <div class="card" style={{ width: "30rem" }}>
+        <div class="card-header text-center">{hirecontract.detail}</div>
+        <div class="me-2 ms-2 mt-2 mb-2 ">
+          <img
+            src="https://static.wixstatic.com/media/7ac599_ccf8c77aea30480bae375e4adaf2b75d~mv2.jpg/v1/fill/w_625,h_750,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/7ac599_ccf8c77aea30480bae375e4adaf2b75d~mv2.jpg"
+            style={{
+              maxWidth: "100%",
+              height: "220px",
+              objectFit: "cover",
+              borderRadius: "5px",
+            }}
+            class="card-img-top"
+            alt={hirecontract.id}
+          />
+        </div>
+        <div class="card-body">
+          {!edit ? (
+            <>
+              <fieldset disabled>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                      @
+                    </span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value={hirecontract.detail}
+                  />
+                </div>
+              </fieldset>
+            </>
+          ) : (
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">
+                  @
+                </span>
+              </div>
+              <input
+                type="text"
+                name="detail"
+                class="form-control"
+                value={hirecontractData.detail}
+                onChange={handleChange}
+              />
+            </div>
+          )}
+
+{/* <div
       style={{
         display: "grid",
         gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr 1fr",
@@ -214,7 +265,56 @@ const HirecontractItem = ({ hirecontract }) => {
           </>
         )}
       </div>
-    </div>
+    </div> */}
+          <div class="">
+            {!edit ? (
+              <>
+                <button
+                  className="btn btn-warning me-1"
+                  onClick={() => setEdit(true)}
+                >
+                  <i class="bi bi-pencil-square"></i> Edit
+                </button>
+                <button className="btn btn-danger ms-1" onClick={handleDelete}>
+                  <i class="bi bi-trash"></i> Delete
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  style={{
+                    cursor: "pointer",
+                    padding: "5px 10px",
+                    border: "none",
+                    background: "red",
+                    margin: "10px",
+                    color: "white",
+                  }}
+                  onClick={() => {
+                    setHirecontractData(hirecontract);
+                    setEdit(false);
+                  }}
+                >
+                  Cancel Edit
+                </button>
+                <button
+                  style={{
+                    cursor: "pointer",
+                    padding: "5px 10px",
+                    border: "none",
+                    background: "green",
+                    color: "white",
+                  }}
+                  onClick={handleSubmit}
+                >
+                  {loading ? "Editing..." : "Confirm Edit"}
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

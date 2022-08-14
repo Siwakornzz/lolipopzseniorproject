@@ -117,7 +117,7 @@ a:focus {
                       <img
                         src="https://pbs.twimg.com/media/FNVBTYlaIAQLQ4I?format=jpg&name=4096x4096"
                         class="img img-responsive"
-                        style={{width: '100%',height:'15v',objectFit:'cover'}}
+                        style={{maxWidth: '100%',height:'15v',objectFit:'cover'}}
                       />
                       <div class="profile-name">{v.zone}</div>
                       <div class="profile-position"></div>
