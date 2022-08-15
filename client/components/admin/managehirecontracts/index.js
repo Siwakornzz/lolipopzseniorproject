@@ -8,36 +8,41 @@ const ManageHirecontracts = () => {
   const { data } = useQuery(QUERY_HIRECONTRACTS, { fetchPolicy: "no-cache" });
   console.log(data);
   return (
-    <div>
-      <p> managehirecontracts</p>
-      <button onClick={() => Router.push("/hirecontracts/createhirecontract")}>
-        CreateHirecontract
-      </button>
-      {/* Header */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
-          widht: "100%",
-        }}
-      >
-        <h3 style={{ margin: "auto" }}>detail</h3>
-        <h3 style={{ margin: "auto" }}>condition</h3>
-        <h3 style={{ margin: "auto" }}>typeofwork</h3>
-        <h3 style={{ margin: "auto" }}>budget</h3>
-        <h3 style={{ margin: "auto" }}> Menu </h3>
+    <>
+      <div className="card">
+        <div className="card-header text-center mt-1">
+          จัดการคำร้องขอการจ้างงาน (ผู้ประสานงาน)
+        </div>
+      </div>
+      <div className="text-end">
+        <button
+          type="button"
+          class="btn btn-warning ms-1 mt-2 mb-2 me-3 "
+          onClick={() => Router.push("/hirecontracts/createhirecontract")}
+        >
+          <i class="bi bi-plus-circle-fill"></i> สร้างคำร้องขอการจ้างงาน
+        </button>
       </div>
 
       {/* Body */}
-      {data &&
-        data.hirecontracts.length > 0 &&
-        data.hirecontracts.map((hirecontract) => (
-          <ManageHirecontractsItem
-            key={hirecontract.id}
-            hirecontract={hirecontract}
-          />
-        ))}
-    </div>
+      <div class="row row-cols-1 row-cols-md-3 g-4  ">
+        {data &&
+          data.hirecontracts.length > 0 &&
+          data.hirecontracts.map((hirecontract, index) => (
+            <div class="col">
+              <div class="card mx-auto" style={{ width: "30rem" }}>
+                <ManageHirecontractsItem
+                  key={hirecontract.id}
+                  hirecontract={hirecontract}
+                  num={index + 1}
+                />
+              </div>
+            </div>
+          ))}
+      </div>
+
+     
+    </>
   );
 };
 

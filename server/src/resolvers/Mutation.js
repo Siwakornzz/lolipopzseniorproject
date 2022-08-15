@@ -335,6 +335,7 @@ export const Mutation = {
       budget: !!budget ? budget : hirecontract.budget,
       zone: !!zone ? zone : hirecontract.zone,
       duration: !!duration ? duration : hirecontract.duration,
+
     };
 
     // update subcontract in the database

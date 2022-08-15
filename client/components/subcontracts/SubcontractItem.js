@@ -48,7 +48,11 @@ const SubcontractItem = ({ subcontract }) => {
           natureofwork: subcontractData.natureofwork?.replace(/\s/g, ""),
         },
       });
-      alert("Update Subcontract Success");
+      Swal.fire({
+        icon: 'success',
+        title: 'LOLIPOPZ',
+        text: 'อัพเดทข้อมูลผู้ว่าจ้างเสร็จสิ้น'
+      })
       Router.reload(window.location.pathname);
     } catch (error) {
       console.log(error);

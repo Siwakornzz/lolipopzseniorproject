@@ -53,8 +53,9 @@ const HirecontractSchema = new mongoose.Schema(
     },
     createdAt: {
       type: Date,
-      default: () => Date.now() + 60 * 60 * 1000 * 7,
+      default: () => Date.now() 
     },
+ 
   },
   { versionKey: false }
 );

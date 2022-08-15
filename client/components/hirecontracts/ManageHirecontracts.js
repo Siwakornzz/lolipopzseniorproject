@@ -9,37 +9,42 @@ const Managehirecontracts = () => {
 
   console.log(data);
   return (
-    <div>
+    <>
       <div className="card">
-        <div className="card-header text-center mt-1">MANAGEHIRECONTRACTS</div>
+        <div className="card-header text-center mt-1">
+          จัดการคำร้องขอการจ้างงาน
+        </div>
       </div>
       <div className="text-end">
         <button
           type="button"
-          class="btn btn-warning ms-1 mt-1 me-3 "
+          class="btn btn-warning ms-1 mt-2 mb-2 me-3 "
           onClick={() => Router.push("/hirecontracts/createhirecontract")}
         >
-          <i class="bi bi-plus-circle-fill"></i> CREATEHIRECONTRACT
+          <i class="bi bi-plus-circle-fill"></i> สร้างคำร้องขอการจ้างงาน
         </button>
       </div>
 
       {/* Body */}
-      <div class="container">
-        <div class="row">
+
+        <div class="row row-cols-1 row-cols-md-3 g-4  ">
           {data &&
             data.user &&
             data.user.hirecontracts.length > 0 &&
-            data.user.hirecontracts.map((hirecontract) => (
-              <div class="col-md-4">
-                <HirecontractItem
-                  key={hirecontract.id}
-                  hirecontract={hirecontract}
-                />
+            data.user.hirecontracts.map((hirecontract, index) => (
+              <div class="col">
+                <div class="card mx-auto" style={{ width: "30rem" }}>
+                  <HirecontractItem
+                    key={hirecontract.id}
+                    hirecontract={hirecontract}
+                    num={index + 1}
+                  />
+                </div>
               </div>
             ))}
         </div>
-      </div>
-    </div>
+
+    </>
   );
 };
 

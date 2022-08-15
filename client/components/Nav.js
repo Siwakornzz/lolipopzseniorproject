@@ -38,14 +38,14 @@ const Nav = () => {
                 <Link href="/signin">
                   <li className="nav-item">
                     <a className="nav-link mx-2" style={{ cursor: "pointer" }}>
-                      SignIn
+                      เข้าสู่ระบบ
                     </a>
                   </li>
                 </Link>
                 <Link href="/signup">
                   <li className="nav-item">
                     <a className="nav-link mx-2" style={{ cursor: "pointer" }}>
-                      SignUp
+                      สมัครสมาชิก
                     </a>
                   </li>
                 </Link>
@@ -148,7 +148,7 @@ const Nav = () => {
                       style={{ cursor: "pointer" }}
                       onClick={signout}
                     >
-                      <i className="bi bi-box-arrow-right"></i> SIGNOUT
+                      <i className="bi bi-box-arrow-right"></i> ออกจากระบบ
                     </a>
                   </li>
                 </ul>
