@@ -151,6 +151,89 @@ export const QUERY_SUBCONTRACTS = gql`
   }
 `;
 
+// subcontractwebdevelopment approve
+export const QUERY_SUBCONTRACTSWEBDEVELOPMENT = gql`
+  query {
+    subcontractswebdevelopment {
+      id
+      name
+      username
+      email
+      skill
+      natureofwork
+      yearskill
+      tel
+      member
+      idcard
+      budget
+      lineid
+      province
+      district
+      subdistrict
+      zip
+      nameofbank
+      accountnumber
+      nameofaccount
+      promptpay
+      status
+      createdAt
+
+      hirecontractWorkId {
+        id
+        detail
+        zone
+        budget
+      }
+      subcontractCreatorId {
+        id
+        username
+        email
+      }
+    }
+  }
+`;
+
+export const QUERY_SUBCONTRACTWORDPRESS = gql`
+  query {
+    subcontractswordpress {
+      id
+      name
+      username
+      email
+      skill
+      natureofwork
+      yearskill
+      tel
+      member
+      idcard
+      budget
+      lineid
+      province
+      district
+      subdistrict
+      zip
+      nameofbank
+      accountnumber
+      nameofaccount
+      promptpay
+      status
+      createdAt
+
+      hirecontractWorkId {
+        id
+        detail
+        zone
+        budget
+      }
+      subcontractCreatorId {
+        id
+        username
+        email
+      }
+    }
+  }
+`;
+
 // hirecontract
 
 // query one by one

@@ -1,5 +1,6 @@
 import React from 'react'
-import Category from '../../../components/subcontracts/category/Category'
+import Category from '../../components/category/Category'
+
 
 const index = () => {
   return (

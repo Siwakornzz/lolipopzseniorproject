@@ -10,6 +10,8 @@ type Query {
   subcontractsdenied: [Subcontract]
   subcontractspendingcancel: [Subcontract]
   adminapprovesubcontractspendingcancel: [Subcontract]
+  subcontractswebdevelopment: [Subcontract]
+  subcontractswordpress: [Subcontract]
 
   hirecontract(id: ID!): Hirecontract
   hirecontracts: [Hirecontract]
@@ -97,7 +99,6 @@ type Mutation {
     budget: Float
     zone: String
     duration: Float
-
   ): Hirecontract!
 
   deletehirecontract(id: ID!): Hirecontract!
@@ -115,7 +116,6 @@ type User {
   subcontracts: [Subcontract]
   hirecontracts: [Hirecontract]
   createdAt: Date!
-
 }
 
 type Subcontract {
@@ -143,8 +143,6 @@ type Subcontract {
   hirecontractWorkId: [Hirecontract]
   subcontractCreatorId: User!
   createdAt: Date!
-
-
 }
 
 type Hirecontract {
@@ -161,7 +159,6 @@ type Hirecontract {
   hirecontractCreatorId: User!
   subcontractAcceptHirecontractId: Subcontract
   createdAt: Date!
-
 }
 
 type AuthData {

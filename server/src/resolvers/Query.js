@@ -73,7 +73,7 @@ export const Query = {
       }),
 
   subcontractsapprove: (parent, args, context, info) =>
-    Subcontract.find({ status: "APPROVE" })
+    Subcontract.find({ status: "ยืนยันแล้ว" })
       .populate({
         path: "subcontractCreatorId",
         populate: { path: "subcontracts" },
@@ -85,7 +85,7 @@ export const Query = {
       }),
 
   subcontractsdenied: (parent, args, context, info) =>
-    Subcontract.find({ status: "DENIED" })
+    Subcontract.find({ status: "ปฎิเสธ" })
       .populate({
         path: "subcontractCreatorId",
         populate: { path: "subcontracts" },
@@ -97,7 +97,7 @@ export const Query = {
       }),
 
   subcontractspendingcancel: (parent, args, context, info) =>
-    Subcontract.find({ status: "PENDINGCANCEL" })
+    Subcontract.find({ status: "กำลังรอการตอบรับจากผู้ประสานงาน" })
       .populate({
         path: "subcontractCreatorId",
         populate: { path: "subcontracts" },
@@ -109,7 +109,41 @@ export const Query = {
       }),
 
   adminapprovesubcontractspendingcancel: (parent, args, context, info) =>
-    Subcontract.find({ status: "CANCEL" })
+    Subcontract.find({ status: "ผู้ประสานงานยินยอมการยกเลิกเรียบร้อยแล้ว" })
+      .populate({
+        path: "subcontractCreatorId",
+        populate: { path: "subcontracts" },
+      })
+      .sort({ createdAt: "asc" })
+      .populate({
+        path: "hirecontractWorkId",
+        populate: { path: "hirecontracts" },
+      }),
+
+  subcontractswebdevelopment: (parent, args, context, info) =>
+    Subcontract.find({
+      $and: [
+        { status: "ตรวจสอบแล้ว" },
+        { natureofwork: { $regex: "webdevelopment" } },
+      ],
+    })
+      .populate({
+        path: "subcontractCreatorId",
+        populate: { path: "subcontracts" },
+      })
+      .sort({ createdAt: "asc" })
+      .populate({
+        path: "hirecontractWorkId",
+        populate: { path: "hirecontracts" },
+      }),
+      
+  subcontractswordpress: (parent, args, context, info) =>
+    Subcontract.find({
+      $and: [
+        { status: "ตรวจสอบแล้ว" },
+        { natureofwork: { $regex: "wordpress" } },
+      ],
+    })
       .populate({
         path: "subcontractCreatorId",
         populate: { path: "subcontracts" },
