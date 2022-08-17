@@ -78,7 +78,7 @@ const ManageHirecontractsItem = ({ hirecontract, num }) => {
       <div class="card-header text-center">คำร้องขอที่ : {num}</div>
       <div class="me-2 ms-2 mt-2 mb-2 ">
         <img
-          src="https://thumbs.gfycat.com/BriefLightheartedIberianmole-size_restricted.gif"
+          src="https://www.techmediasquare.com/wp-content/uploads/2020/01/Web-Development-Tech-Media-Square.jpeg"
           style={{
             maxWidth: "100%",
             height: "220px",

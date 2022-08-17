@@ -58,7 +58,7 @@ const Subcontracts = () => {
         bottom: 0px;
         left: 0px;
         right: 0px;
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 50%, rgba(255, 255, 0, 0));
+        // background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 50%, rgba(255, 255, 0, 0));
         color: #FFF;
         padding: 50px 0px 20px 0px;
         transition: all 0.15s linear;
@@ -117,7 +117,7 @@ const Subcontracts = () => {
                   <div class="col-md-4">
                     <div class="profile-card-6">
                     <img
-                        src="https://pbs.twimg.com/media/FNVBTYlaIAQLQ4I?format=jpg&name=4096x4096"
+                        src="http://english.ckgsb.edu.cn/wp-content/uploads/2021/04/simple-minimalism.jpg"
                         class="img img-responsive"
                         style={{width: '100%',height:'15v',objectFit:'cover'}}
                       />

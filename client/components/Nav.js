@@ -108,38 +108,41 @@ const Nav = () => {
                   )}
 
                   {/* USER */}
-                  <div className="dropdown-content">
-                    <a style={{ display: "block", cursor: "context-menu" }}>
-                      &nbsp; &nbsp; <i className="bi bi-person"></i>
-                      &nbsp; USER
-                    </a>
-                  </div>
-                  <hr className="dropdown-divider" />
+                  {user && user?.roles !== "Admin" && (
+                    <>
+                      <div className="dropdown-content">
+                        <a style={{ display: "block", cursor: "context-menu" }}>
+                          &nbsp; &nbsp; <i className="bi bi-person"></i>
+                          &nbsp; USER
+                        </a>
+                      </div>
+                      <hr className="dropdown-divider" />
 
-                  <Link href="/subcontracts">
-                    <li style={{ cursor: "pointer" }}>
-                      <a className="dropdown-item">Subcontracts</a>
-                    </li>
-                  </Link>
+                      <Link href="/subcontracts">
+                        <li style={{ cursor: "pointer" }}>
+                          <a className="dropdown-item">Subcontracts</a>
+                        </li>
+                      </Link>
 
-                  <Link href="/hirecontracts">
-                    <li style={{ cursor: "pointer" }}>
-                      <a className="dropdown-item">Hirecontracts</a>
-                    </li>
-                  </Link>
+                      <Link href="/hirecontracts">
+                        <li style={{ cursor: "pointer" }}>
+                          <a className="dropdown-item">Hirecontracts</a>
+                        </li>
+                      </Link>
 
-                  <Link href="/managesubcontract">
-                    <li style={{ cursor: "pointer" }}>
-                      <a className="dropdown-item">ManageSubcontracts</a>
-                    </li>
-                  </Link>
+                      <Link href="/managesubcontract">
+                        <li style={{ cursor: "pointer" }}>
+                          <a className="dropdown-item">ManageSubcontracts</a>
+                        </li>
+                      </Link>
 
-                  <Link href="/managehirecontract">
-                    <li style={{ cursor: "pointer" }}>
-                      <a className="dropdown-item">ManageHirecontracts</a>
-                    </li>
-                  </Link>
-
+                      <Link href="/managehirecontract">
+                        <li style={{ cursor: "pointer" }}>
+                          <a className="dropdown-item">ManageHirecontracts</a>
+                        </li>
+                      </Link>
+                    </>
+                  )}
                   <hr className="dropdown-divider" />
 
                   <li style={{ cursor: "pointer" }}>
@@ -159,8 +162,6 @@ const Nav = () => {
       </div>
     </nav>
   );
-  
 };
-
 
 export default Nav;
