@@ -31,6 +31,7 @@ export const SIGN_IN = gql`
         id
         username
         email
+        roles
         subcontracts {
           id
           name

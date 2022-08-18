@@ -284,41 +284,69 @@ const HirecontractItem = ({ hirecontract, num }) => {
           </div>
         )}
 
+        <>
+          <fieldset disabled>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">
+                  @
+                </span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                value={hirecontract.status}
+              />
+            </div>
+          </fieldset>
+        </>
+
         <div class="text-end">
-          {!edit ? (
+          {/* ถ้ากำลังรอจะไม่แสดงปุ่ม delete กับ ปุ่ม Edit */}
+          {hirecontract?.status != "กำลังรอการตอบรับจากผู้รับเหมาช่วง" && (
             <>
-              <button
-                className="btn btn-warning me-1"
-                onClick={() => setEdit(true)}
-              >
-                <i class="bi bi-pencil-square"></i> แก้ไข
-              </button>
-              <button className="btn btn-danger ms-1" onClick={handleDelete}>
-                <i class="bi bi-trash"></i> ลบ
-              </button>
-            </>
-          ) : (
-            <>
-              <button
-                class="btn btn-danger me-2 ms-2"
-                onClick={() => {
-                  setHirecontractData(hirecontract);
-                  setEdit(false);
-                }}
-              >
+              {!edit ? (
                 <>
-                  <i class="bi bi-x"></i> ยกเลิก
+                  <button
+                    className="btn btn-warning me-1"
+                    onClick={() => setEdit(true)}
+                  >
+                    <i class="bi bi-pencil-square"></i> แก้ไข
+                  </button>
+                  <button
+                    className="btn btn-danger ms-1"
+                    onClick={handleDelete}
+                  >
+                    <i class="bi bi-trash"></i> ลบ
+                  </button>
                 </>
-              </button>
-              <button class="btn btn-primary me-2 ms-2" onClick={handleSubmit}>
-                {loading ? (
-                  "Editing..."
-                ) : (
-                  <>
-                    <i class="bi bi-check-circle-fill"></i> บันทึก
-                  </>
-                )}
-              </button>
+              ) : (
+                <>
+                  <button
+                    class="btn btn-danger me-2 ms-2"
+                    onClick={() => {
+                      setHirecontractData(hirecontract);
+                      setEdit(false);
+                    }}
+                  >
+                    <>
+                      <i class="bi bi-x"></i> ยกเลิก
+                    </>
+                  </button>
+                  <button
+                    class="btn btn-primary me-2 ms-2"
+                    onClick={handleSubmit}
+                  >
+                    {loading ? (
+                      "Editing..."
+                    ) : (
+                      <>
+                        <i class="bi bi-check-circle-fill"></i> บันทึก
+                      </>
+                    )}
+                  </button>
+                </>
+              )}
             </>
           )}
         </div>

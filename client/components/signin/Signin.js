@@ -26,9 +26,12 @@ const Signin = () => {
           email: "",
           password: "",
         });
-
-        // push user after logged in to subcontracts page
-        Router.push("/subcontracts");
+        if (data.signin.user.roles === "Admin") {
+          Router.push("/admin");
+        } else {
+          // push user after logged in to subcontracts page
+          Router.push("/subcontracts");
+        }
       }
     },
   });
@@ -68,7 +71,7 @@ const Signin = () => {
           </div>
           <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
             <form onSubmit={handleSubmit}>
-            {error && (
+              {error && (
                 <div class="alert alert-danger text-center" role="alert">
                   <p>{error.graphQLErrors[0].message}</p>
                 </div>
@@ -146,7 +149,6 @@ const Signin = () => {
                   </span>
                 </Link>
               </a>
-              
             </form>
           </div>
         </div>

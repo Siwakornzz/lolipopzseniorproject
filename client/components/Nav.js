@@ -120,28 +120,54 @@ const Nav = () => {
 
                       <Link href="/subcontracts">
                         <li style={{ cursor: "pointer" }}>
-                          <a className="dropdown-item">Subcontracts</a>
+                          <a className="dropdown-item">ผู้รับเหมาช่วง</a>
                         </li>
                       </Link>
 
                       <Link href="/hirecontracts">
                         <li style={{ cursor: "pointer" }}>
-                          <a className="dropdown-item">Hirecontracts</a>
+                          <a className="dropdown-item">ผู้ว่าจ้าง</a>
                         </li>
                       </Link>
 
                       <Link href="/managesubcontract">
                         <li style={{ cursor: "pointer" }}>
-                          <a className="dropdown-item">ManageSubcontracts</a>
+                          <a className="dropdown-item">จัดการข้อมูลผู้รับเหมาช่วง</a>
                         </li>
                       </Link>
 
                       <Link href="/managehirecontract">
                         <li style={{ cursor: "pointer" }}>
-                          <a className="dropdown-item">ManageHirecontracts</a>
+                          <a className="dropdown-item">จัดการข้อมูลผู้ว่าจ้าง</a>
                         </li>
                       </Link>
+
+                      <hr className="dropdown-divider" />
+
+                      <div className="dropdown-content">
+                        <a style={{ display: "block", cursor: "context-menu" }}>
+                          &nbsp; &nbsp; <i className="bi bi-person"></i>
+                          &nbsp; TASK
+                        </a>
+                      </div>
+
+                      <hr className="dropdown-divider" />
+                      <Link href="/task/hirecontracthasAssign">
+                        <li style={{ cursor: "pointer" }}>
+                          <a className="dropdown-item"> รายการงานที่จ้างมา</a>
+                        </li>
+                      </Link>
+
+                      <Link href="/task/hirecontractAccept">
+                        <li style={{ cursor: "pointer" }}>
+                          <a className="dropdown-item"> รายการงานที่ทำอยู่</a>
+                        </li>
+                      </Link>
+              
+
                     </>
+
+                    
                   )}
                   <hr className="dropdown-divider" />
 

@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import { Router, useRouter } from "next/router";
 import { useMutation } from "@apollo/react-hooks";
 import { useQuery } from "@apollo/react-hooks";
 import React, { useState } from "react";
@@ -111,8 +111,13 @@ const Requestmatching = () => {
                   }
                 }
               }
+             console.log('subcreatorId',subcontractId.subcontractCreatorId.id)
+             console.log('hirecreatorId',data.hirecontract.hirecontractCreatorId.id)
               if (tmpcheckskill >= 1) {
-                matchingss.push(subcontractId);
+                if (subcontractId.subcontractCreatorId.id !== data.hirecontract.hirecontractCreatorId.id)
+                {
+                  matchingss.push(subcontractId);
+                }
               }
             }
             console.log(tmpcheckskill);
@@ -144,7 +149,8 @@ const Requestmatching = () => {
           id: hirecontractId,
           subcontractAcceptHirecontractId: id,
         },
-      });
+      }).then(() => Router.push('/admin/matching'));
+      
     } catch (error) {
       console.log(error);
     }
@@ -194,9 +200,24 @@ const Requestmatching = () => {
                 HIRECONTRACT REQUESTMATCHING
               </div>
               <div class="card-body ">
-                <p> <span style={{color: 'red'}}> ID : </span> {data?.hirecontract.id}</p>
-                <p> <span style={{color: 'red'}}> รายละเอียดของงาน : </span> {data?.hirecontract.detail}</p>
-                <p> <span style={{color: 'red'}}> งบประมาณ :  </span>{data?.hirecontract.budget}</p>
+                <p>
+                  {" "}
+                  <span style={{ color: "red" }}> ID : </span>{" "}
+                  {data?.hirecontract.id}
+                </p>
+                <p>
+                  {" "}
+                  <span style={{ color: "red" }}>
+                    {" "}
+                    รายละเอียดของงาน :{" "}
+                  </span>{" "}
+                  {data?.hirecontract.detail}
+                </p>
+                <p>
+                  {" "}
+                  <span style={{ color: "red" }}> งบประมาณ : </span>
+                  {data?.hirecontract.budget} บาท
+                </p>
                 <button class="btn btn-outline-info" onClick={matchings}>
                   {" "}
                   Matching{" "}
@@ -215,8 +236,8 @@ const Requestmatching = () => {
                       <div class="card-header">SUBCONTRACTNAME : {v.name}</div>
                       <div class="card-body"></div>
                       <p>SUBCONTRACT ID : {v.id} </p>
-                      <p> ประสบการณ์ในการทำงาน : {v.yearskill}  ปี</p>
-                      <p>งบประมาณ : {v.budget}</p>
+                      <p> ประสบการณ์ในการทำงาน : {v.yearskill} ปี</p>
+                      <p>งบประมาณ : {v.budget} บาท </p>
 
                       <button
                         class="btn btn-outline-primary w-50 m-auto p-auto  mb-2  "

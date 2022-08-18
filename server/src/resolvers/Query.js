@@ -187,6 +187,13 @@ export const Query = {
         path: "subcontractAcceptHirecontractId",
         populate: { path: "subcontracts" },
       }),
+      
+  hirecontractswaitingassign: (parent, args, context, info) =>
+      Hirecontract.find({status:"กำลังรอการตอบรับจากผู้รับเหมาช่วง"})
+      .populate({
+        path:"hirecontractCreatorId",
+        populate: {path: "subcontracts"},
+      }),
 
   hirecontractsapprove: (parent, args, context, info) =>
     Hirecontract.find({ status: "APPROVE" })
