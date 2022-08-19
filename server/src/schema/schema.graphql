@@ -5,6 +5,7 @@ type Query {
   users: [User]!
   subcontract(id: ID!): Subcontract
   subcontracts: [Subcontract]!
+  subcontracthasassign(id:ID) : [Subcontract]
   subcontractswaiting: [Subcontract]
   subcontractsapprove: [Subcontract]
   subcontractsdenied: [Subcontract]

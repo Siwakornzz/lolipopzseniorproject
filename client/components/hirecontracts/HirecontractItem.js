@@ -276,7 +276,7 @@ const HirecontractItem = ({ hirecontract, num }) => {
             </div>
             <input
               type="number"
-              name="typeofwork"
+              name="budget"
               class="form-control"
               value={hirecontractData.budget}
               onChange={handleChange}

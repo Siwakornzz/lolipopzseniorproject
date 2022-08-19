@@ -152,7 +152,7 @@ const Nav = () => {
                       </div>
 
                       <hr className="dropdown-divider" />
-                      <Link href="/task/hirecontracthasAssign">
+                      <Link href="/task">
                         <li style={{ cursor: "pointer" }}>
                           <a className="dropdown-item"> รายการงานที่จ้างมา</a>
                         </li>

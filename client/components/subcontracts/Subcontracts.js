@@ -6,7 +6,7 @@ import { QUERY_SUBCONTRACTS } from "../../apollo/queries";
 const Subcontracts = () => {
   const { data, loading, error } =  useQuery(QUERY_SUBCONTRACTS, {});
 
-
+console.log(data);
   if (error) {
     return <p> Something went wrong !</p>;
   }
@@ -58,7 +58,7 @@ const Subcontracts = () => {
         bottom: 0px;
         left: 0px;
         right: 0px;
-        // background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 50%, rgba(255, 255, 0, 0));
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 50%, rgba(255, 255, 0, 0));
         color: #FFF;
         padding: 50px 0px 20px 0px;
         transition: all 0.15s linear;
@@ -117,9 +117,9 @@ const Subcontracts = () => {
                   <div class="col-md-4">
                     <div class="profile-card-6">
                     <img
-                        src="http://english.ckgsb.edu.cn/wp-content/uploads/2021/04/simple-minimalism.jpg"
+                        src="https://images.pexels.com/photos/4974912/pexels-photo-4974912.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                         class="img img-responsive"
-                        style={{width: '100%',height:'15v',objectFit:'cover'}}
+                        style={{width: '100%',height:'400px',objectFit:'cover'}}
                       />
                       <div class="profile-name">{v.name}</div>
                       <div class="profile-position"></div>

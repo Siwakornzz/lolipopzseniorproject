@@ -2,6 +2,7 @@ import Hirecontract from "../models/hirecontract";
 
 import Subcontract from "../models/subcontract";
 import User from "../models/User";
+const ObjectId = require("mongoose").Types.ObjectId;
 
 export const Query = {
   // User
@@ -47,6 +48,22 @@ export const Query = {
         path: "hirecontractWorkId",
         populate: { path: "hirecontracts" },
       }),
+
+  subcontracthasassign: (parent, args, context, info) =>
+    Subcontract.find({ subcontractCreatorId: ObjectId(args.id) })
+      .populate({
+        path: "subcontractCreatorId",
+        populate: { path: "subcontracts" },
+      })
+      .populate({
+        path: "hirecontractWorkId",
+        populate: { path: "hirecontracts" },
+      })
+      .populate({
+        path: "hirecontractCreatorId",
+        populate: { path: "users" },
+      })
+      .sort({ createdAt: "asc" }),
 
   subcontracts: (parent, args, context, info) =>
     Subcontract.find({})
@@ -136,7 +153,7 @@ export const Query = {
         path: "hirecontractWorkId",
         populate: { path: "hirecontracts" },
       }),
-      
+
   subcontractswordpress: (parent, args, context, info) =>
     Subcontract.find({
       $and: [
@@ -148,11 +165,7 @@ export const Query = {
         path: "subcontractCreatorId",
         populate: { path: "subcontracts" },
       })
-      .sort({ createdAt: "asc" })
-      .populate({
-        path: "hirecontractWorkId",
-        populate: { path: "hirecontracts" },
-      }),
+      .sort({ createdAt: "asc" }),
 
   // Hirecontract
   hirecontract: (parent, args, context, info) =>
@@ -187,13 +200,14 @@ export const Query = {
         path: "subcontractAcceptHirecontractId",
         populate: { path: "subcontracts" },
       }),
-      
+
   hirecontractswaitingassign: (parent, args, context, info) =>
-      Hirecontract.find({status:"กำลังรอการตอบรับจากผู้รับเหมาช่วง"})
-      .populate({
-        path:"hirecontractCreatorId",
-        populate: {path: "subcontracts"},
-      }),
+    Hirecontract.find({ status: "กำลังรอการตอบรับจากผู้รับเหมาช่วง" }).populate(
+      {
+        path: "hirecontractCreatorId",
+        populate: { path: "subcontracts" },
+      }
+    ),
 
   hirecontractsapprove: (parent, args, context, info) =>
     Hirecontract.find({ status: "APPROVE" })

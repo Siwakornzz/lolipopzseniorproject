@@ -109,6 +109,24 @@ export const QUERY_SUBCONTRACT = gql`
   }
 `;
 
+export const QUERY_SUBCONTRACTHASASSIGN = gql`
+  query QUERY_SUBCONTRACTHASASSIGN($id: ID) {
+    subcontracthasassign(id: $id) {
+      id
+      hirecontractWorkId {
+        id
+        condition
+        detail
+        typeofwork
+        budget
+        zone
+        duration
+        status
+        createdAt
+      }
+    }
+  }
+`;
 // query all of them
 export const QUERY_SUBCONTRACTS = gql`
   query {
@@ -240,6 +258,32 @@ export const QUERY_SUBCONTRACTWORDPRESS = gql`
 export const QUERY_HIRECONTRACT = gql`
   query QUERY_HIRECONTRACT($id: ID!) {
     hirecontract(id: $id) {
+      id
+      condition
+      detail
+      typeofwork
+      budget
+      zone
+      duration
+      status
+      createdAt
+
+      subcontractAcceptHirecontractId {
+        id
+        name
+      }
+      hirecontractCreatorId {
+        id
+        username
+        email
+      }
+    }
+  }
+`;
+
+export const QUERY_HIRECONTRACTHASASSIGN = gql`
+  query QUERY_HIRECONTRACTHASASSIGN($id: ID) {
+    hirecontracthasassign(id: $id) {
       id
       condition
       detail
