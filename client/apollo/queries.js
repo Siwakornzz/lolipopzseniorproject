@@ -32,6 +32,9 @@ export const Me = gql`
         promptpay
         status
         createdAt
+        hirecontractWorkId {
+          id
+        }
       }
       hirecontracts {
         id
@@ -43,6 +46,9 @@ export const Me = gql`
         duration
         status
         createdAt
+        subcontractAcceptHirecontractId {
+          id
+        }
       }
     }
   }
@@ -113,6 +119,9 @@ export const QUERY_SUBCONTRACTHASASSIGN = gql`
   query QUERY_SUBCONTRACTHASASSIGN($id: ID) {
     subcontracthasassign(id: $id) {
       id
+      subcontractCreatorId{
+      id
+    }
       hirecontractWorkId {
         id
         condition

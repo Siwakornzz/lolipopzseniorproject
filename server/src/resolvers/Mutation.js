@@ -433,4 +433,51 @@ export const Mutation = {
       });
     return assignhirecontract;
   },
+
+  subcontractacceptwork: async (parent, args, context, info) => {
+    const id = args.id
+
+    const hirecontract = await Hirecontract.findById(
+      id
+    );
+
+    hirecontract.status = "ผู้รับเหมาช่วงยืนยันรับงานแล้วกำลังทำงาน"
+
+    await hirecontract.save();
+
+    const assignStatus = await Hirecontract.findById(id)
+      .populate({
+        path: "hirecontractCreatorId",
+        populate: { path: "hirecontracts" },
+      })
+      .populate({
+        path: "subcontractAcceptHirecontractId",
+        populate: { path: "subcontracts" },
+      });
+    return assignStatus;
+  },
+
+  subcontractdeniedwork: async (parent, args, context, info) => {
+
+    const id = args.id
+    const hirecontract = await Hirecontract.findById(
+      id
+    );
+
+    hirecontract.status = "ผู้รับเหมาช่วงปฎิเสธการรับงาน"
+
+    await hirecontract.save();
+
+    const assignStatus = await Hirecontract.findById(id)
+      .populate({
+        path: "hirecontractCreatorId",
+        populate: { path: "hirecontracts" },
+      })
+      .populate({
+        path: "subcontractAcceptHirecontractId",
+        populate: { path: "subcontracts" },
+      });
+    return assignStatus;
+  },
 };
+

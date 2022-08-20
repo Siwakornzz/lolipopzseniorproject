@@ -21,6 +21,14 @@ export const Query = {
         path: "hirecontracts",
         options: { sort: { createdAt: "asc" } },
         populate: { path: "hirecontractCreatorId" },
+      })
+      .populate({
+        path: "subcontracts",
+        populate: { path: "hirecontractWorkId" },
+      })
+      .populate({
+        path: "hirecontracts",
+        populate: { path: "subcontractAcceptHirecontractId" },
       });
   },
 
@@ -57,11 +65,7 @@ export const Query = {
       })
       .populate({
         path: "hirecontractWorkId",
-        populate: { path: "hirecontracts" },
-      })
-      .populate({
-        path: "hirecontractCreatorId",
-        populate: { path: "users" },
+        populate: { path: "subcontracts" },
       })
       .sort({ createdAt: "asc" }),
 
@@ -188,6 +192,10 @@ export const Query = {
       .populate({
         path: "subcontractAcceptHirecontractId",
         populate: { path: "subcontracts" },
+      })
+      .populate({
+        path:"subcontractCreatorId",
+        populate:{path:"users"}
       }),
 
   hirecontractswaiting: (parent, args, context, info) =>

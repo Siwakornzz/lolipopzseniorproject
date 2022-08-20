@@ -278,11 +278,32 @@ export const DELETE_HIRECONTRACT = gql`
   }
 `;
 
-
 export const ASSIGN_HIRECONTRACT = gql`
-  mutation ASSIGN_HIRECONTRACT($id: ID! , $subcontractAcceptHirecontractId: ID!){
-    assignsubtohire(id: $id , subcontractAcceptHirecontractId: $subcontractAcceptHirecontractId){
+  mutation ASSIGN_HIRECONTRACT(
+    $id: ID!
+    $subcontractAcceptHirecontractId: ID!
+  ) {
+    assignsubtohire(
+      id: $id
+      subcontractAcceptHirecontractId: $subcontractAcceptHirecontractId
+    ) {
       id
     }
   }
-`
+`;
+
+export const SUBCONTRACT_ACCEPTHIRECONTRACT = gql`
+  mutation SUBCONTRACT_ACCEPTHIRECONTRACT($id: ID!) {
+    subcontractacceptwork(id: $id) {
+      id
+    }
+  }
+`;
+
+export const SUBCONTRACT_DENIEDTHIRECONTRACT = gql`
+  mutation SUBCONTRACT_DENIEDTHIRECONTRACT($id: ID!) {
+    subcontractdeniedwork(id: $id) {
+      id
+    }
+  }
+`;

@@ -6,18 +6,10 @@ import { Me, QUERY_SUBCONTRACTHASASSIGN } from "../../apollo/queries";
 
 const HirecontractHasAssign = () => {
   const me = useQuery(Me, { fetchPolicy: "no-cache" });
-  console.log("me", me.data?.user.id);
-
   const { data, loading, error } = useQuery(QUERY_SUBCONTRACTHASASSIGN, {
     variables: { id: me.data?.user.id },
   });
-  // console.log(data?.subcontracthasassign);
 
-  // data?.subcontracthasassign?.map((v) => (
-  //   v.hirecontractWorkId?.map((k) =>(
-  //     console.log(k.zone)
-  //   ))
-  // ))
   if (error) {
     return <p> Something went wrong</p>;
   }
@@ -121,47 +113,53 @@ perspective: 1000;
               {data &&
                 data?.subcontracthasassign?.map((v) =>
                   v.hirecontractWorkId?.map((k) => (
-                    <Link
-                      key={k.id}
-                      href="/task/[hirecontracthasAssignId]"
-                      as={`/task/${k.id}`}
-                    >
-                      <div class="col-md-4">
-                        <div class="profile-card-6">
-                          <img
-                            src="https://pbs.twimg.com/media/FNVBTYlaIAQLQ4I?format=jpg&name=4096x4096"
-                            class="img img-responsive"
-                            style={{
-                              maxWidth: "100%",
-                              height: "15v",
-                              objectFit: "cover",
-                            }}
-                          />
-                          <div class="profile-name">
-                            จังหวัด : {k.zone}
-                          </div>
-                          <div class="profile-position"></div>
-                          <div class="profile-overview">
-                            <div class="profile-overview">
-                              <div class="row text-center">
-                                <div class="col-xs-4">
-                                  <h5> ระยะเวลาการทำงาน  </h5>
-                                  <p>{k.duration} เดือน</p>
+                    <>
+                      {k.status === "กำลังรอการตอบรับจากผู้รับเหมาช่วง" && (
+                        <>
+                          <Link
+                            key={k.id}
+                            href="/task/[hirecontracthasAssignId]"
+                            as={`/task/${k.id}`}
+                          >
+                            <div class="col-md-4">
+                              <div class="profile-card-6">
+                                <img
+                                  src="https://pbs.twimg.com/media/FNVBTYlaIAQLQ4I?format=jpg&name=4096x4096"
+                                  class="img img-responsive"
+                                  style={{
+                                    maxWidth: "100%",
+                                    height: "15v",
+                                    objectFit: "cover",
+                                  }}
+                                />
+                                <div class="profile-name">
+                                  จังหวัด : {k.zone}
                                 </div>
-                                <div class="col-xs-4">
-                                  <h5> เงื่อนไขภาษาที่ต้องการ   </h5>
-                                  <p>{k.condition}</p>
-                                </div>
-                                <div class="col-xs-4">
-                                  <h4> งบในการจ้าง</h4>
-                                  <p>{k.budget} บาท</p>
+                                <div class="profile-position"></div>
+                                <div class="profile-overview">
+                                  <div class="profile-overview">
+                                    <div class="row text-center">
+                                      <div class="col-xs-4">
+                                        <h5> ระยะเวลาการทำงาน </h5>
+                                        <p>{k.duration} เดือน</p>
+                                      </div>
+                                      <div class="col-xs-4">
+                                        <h5> เงื่อนไขภาษาที่ต้องการ </h5>
+                                        <p>{k.condition}</p>
+                                      </div>
+                                      <div class="col-xs-4">
+                                        <h4> งบในการจ้าง</h4>
+                                        <p>{k.budget} บาท</p>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
+                          </Link>
+                        </>
+                      )}
+                    </>
                   ))
                 )}
             </div>

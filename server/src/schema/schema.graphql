@@ -5,7 +5,7 @@ type Query {
   users: [User]!
   subcontract(id: ID!): Subcontract
   subcontracts: [Subcontract]!
-  subcontracthasassign(id:ID) : [Subcontract]
+  subcontracthasassign(id: ID): [Subcontract]
   subcontractswaiting: [Subcontract]
   subcontractsapprove: [Subcontract]
   subcontractsdenied: [Subcontract]
@@ -104,8 +104,9 @@ type Mutation {
   ): Hirecontract!
 
   deletehirecontract(id: ID!): Hirecontract!
-
   assignsubtohire(id: ID!, subcontractAcceptHirecontractId: ID!): Hirecontract!
+  subcontractdeniedwork(id: ID!): Hirecontract!
+  subcontractacceptwork(id: ID!): Hirecontract!
 }
 
 type User {
